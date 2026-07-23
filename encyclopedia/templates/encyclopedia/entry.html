@@ -1,0 +1,17 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block body %}
+    {% if entry is None %}
+        <p>The page requested doesn't exist yet, create it.</p>
+
+    {% else %}
+        {{ entry | safe }}
+    {% endif %}
+
+    <h3><a href="{% url 'edit' title %}">Edit</a></h3>
+
+{% endblock %}
